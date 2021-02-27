@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>浮水裝置</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js" integrity="sha512-y3o0Z5TJF1UsKjs/jS2CDkeHN538bWsftxO9nctODL5W40nyXIbs0Pgyu7//icrQY9m6475gLaVr39i/uh/nLA==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+  <div class="card">
+    <div class="photo-selector">
+      <input id="files" class="hidden" type="file" multiple onchange="previewFile()">
+      <button onclick="document.getElementById('files').click()">選擇圖片</button>
+      <button onclick="downloadZip()">下載浮水印版本</button>
+    </div>
+
+    <div class="configuration">
+      <div class="labeledTextbox">
+        <div class="labelDiv">字顏色</div>
+        <div class="inputDiv" contenteditable="true" id="color" oninput="previewWaterMark(true)">#00A8FF</div>
+      </div>
+      <div class="labeledTextbox">
+        <div class="labelDiv">字大小</div>
+        <div class="inputDiv" contenteditable="true" id="size" oninput="previewWaterMark(true)">40</div>
+      </div>
+      <div class="labeledTextbox">
+        <div class="labelDiv">廓顏色</div>
+        <div class="inputDiv" contenteditable="true" id="strokeColor" oninput="previewWaterMark(true)">#000000</div>
+      </div>
+      <div class="labeledTextbox">
+        <div class="labelDiv">廓大小</div>
+        <div class="inputDiv" contenteditable="true" id="strokeSize" oninput="previewWaterMark(true)">5</div>
+      </div>
+    </div>
+
+    <div class="watermarker">
+      <div class="labeledTextbox">
+        <div class="labelDiv">浮水印</div>
+        <div class="inputDiv" contenteditable="true" id="watermark" oninput="previewWaterMark(true)"></div>
+      </div>
+    </div>
+    
+    <div class="preview">
+      <canvas id="imageLayer" width="450" height="450"></canvas>
+      <canvas id="textLayer" width="450" height="450"></canvas>
+    </div>
+  </div>
+</body>
+
+<script src="script.js"></script>
+</html>

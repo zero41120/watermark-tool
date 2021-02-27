@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', Helvetica, sans-serif;
+}
+
+button:focus { outline: none; }
+div:focus { outline: none; }
+
+
+body {
+  background-color: #dcdde1;
+  display: grid;
+}
+
+.card {
+  display: grid;
+  justify-self: center;
+  background-color: #fbc531;
+  width: 650px;
+  border-radius: 15px;
+  padding: 20px;
+  grid-template: 
+    "photo"
+    "config"
+    "label"
+    "canvas"
+  ;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.photo-selector {
+  grid-area: photo;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+.photo-selector button {
+  flex-basis: 100%;
+}
+
+.configuration {
+  grid-area: config;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.configuration .labeledTextbox div {
+  font-size: 1rem;
+}
+
+.configuration .labeledTextbox textarea {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-align: center;
+  padding: 0.3rem;
+}
+
+.watermarker {
+  grid-area: label;
+  display: grid;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#textLayer, #imageLayer {
+  grid-area: center;
+  justify-self: center;
+}
+
+#imageLayer {
+  background-color: #dcdde1;
+}
+
+.preview {
+  display: grid;
+  grid-template-areas: "center";
+  grid-area: canvas;
+}
+
+.preview canvas {
+  border-radius: 15px;
+}
+
+
+
+.hidden {
+  display: none !important;
+}
+
+button {
+  font-size: larger;
+  color: #f5f6fa;
+  background-color: #44bd32;
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 0 4px 0 0 #1d4d15;
+}
+
+button:active {
+  box-shadow: 0 1px 0 0 #1d4d15;
+  transform: translateY(3px);
+  transform-origin: bottom;
+}
+
+.labeledTextbox {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.labeledTextbox .labelDiv {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 5px;
+  font-size: 1.5rem;
+  background-color: #40739e;
+  color: #f5f6fa;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: 0 3px 0 0 black;
+}
+
+.labeledTextbox .inputDiv {
+  background-color: #f5f6fa;
+  border: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding: 0 5px;
+  box-shadow: 0 3px 0 0 black;
+  font-family: 'Syne Mono', monospace;
+  overflow: auto;
+}
+
+.inputDiv.error {
+  background-color: #c23616;
+  color: #f5f6fa;
+}
+
+#watermark {
+  height: 80px;
+}
